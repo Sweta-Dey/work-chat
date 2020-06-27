@@ -21,11 +21,9 @@ class Db{
 			this.mongoClient.connect(mongoURL, (err, db) => {
 				if (err) {
 					reject(err);
-					console.log(err);
 				} else {
 					assert.equal(null, err);
 					resolve([db,this.ObjectID]);
-					console.log("Connected to Mongo DB")
 				}
 			});
 		});

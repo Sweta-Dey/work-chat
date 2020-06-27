@@ -19,6 +19,7 @@ const languages = [
   { id: 4, lang: "Spanish", key: "sp" },
   { id: 5, lang: "Hindi", key: "hi" },
   { id: 6, lang: "Bengali", key: "bn" },
+  { id: 7, lang: "Kannada", key: "kn" }
 ];
 
 class Conversation extends Component {
@@ -301,8 +302,7 @@ class Conversation extends Component {
       return (
         <div className="message-thread start-chatting-banner">
           <p className="heading">
-            You haven 't chatted with {this.props.newSelectedUser.username} in a
-            while,
+            Start chatting with {this.props.newSelectedUser.username} 
             <span className="sub-heading"
               style={{cursor: 'pointer'}}
               onClick={() => this.setState({text: 'Hi'})}
@@ -443,7 +443,7 @@ class Conversation extends Component {
   };
 
   langChange = (lang) => {
-    var link = `https://translation.googleapis.com/language/translate/v2?key=AIzaSyBm-r1dSZ_J2fsi2vA1jYhnC9G9LGCfGZU&source=${this.state.language}&target=${lang.key}&q=${this.state.text}`;
+    var link = `https://translation.googleapis.com/language/translate/v2?key=AIzaSyD5qPAzbaCqYp_h7n2EkCOQEZe4wygqcAM&source=${this.state.language}&target=${lang.key}&q=${this.state.text}`;
 
     axios
       .get(link)
@@ -469,7 +469,7 @@ class Conversation extends Component {
             {" "}
             {selectedUser !== null && selectedUser.username
               ? "Loading Messages"
-              : " Select a User to chat."}
+              : <h1 className="display-2">WORK CHAT</h1>}
           </h3>
         </div>
         <div
